@@ -31,5 +31,6 @@ jobs: # job to execute?
     
     - name: Install dependencies
       run: |
-        go get github.com/franela/goblin
+        go mod init github.com/hyson007/CICD
+        go mod tidy
         go test -v
