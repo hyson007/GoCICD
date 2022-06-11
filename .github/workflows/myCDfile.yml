@@ -1,1 +1,20 @@
+name: CD for Go Code
+on:
+  create:
+    tags:
+      - v*
+      
+jobs:
+  release:
+    name: Release on Github
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2.4.2
 
+      - name: Setup Go
+        uses: actions/setup-go@v3.2.0
+        with:
+          go-version: 1.18
+      - name: Check Go Version
+        run: go version
